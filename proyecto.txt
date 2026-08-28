@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class SCIL {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] nombres = {"Laptop", "Mouse", "Teclado", "Monitor", "Audífonos", 
+                            "Cámara", "Impresora", "Tablet", "Disco Duro", "USB"};
+        int[] stock = {5, 12, 8, 3, 0, 7, 0, 4, 6, 15};
+        int opcion;
+        
+        do {
+            System.out.println("\n1. Ver Inventario  2. Registrar Stock  3. Ver Agotados  4. Salir");
+            System.out.print("Seleccione: ");
+            opcion = sc.nextInt();
+            
+            switch(opcion) {
+                case 1:
+                    System.out.println("\n--- INVENTARIO ---");
+                    for(int i=0; i<nombres.length; i++) 
+                        System.out.printf("%d. %-12s %d %s%n", i, nombres[i], stock[i], stock[i]==0?"AGOTADO":"");
+                    break;
+                    
+                case 2:
+                    System.out.println("\n--- REGISTRAR STOCK ---");
+                    for(int i=0; i<nombres.length; i++) 
+                        System.out.printf("%d. %s (Stock: %d)%n", i, nombres[i], stock[i]);
+                    System.out.print("Índice: ");
+                    int idx = sc.nextInt();
+                    if(idx>=0 && idx<nombres.length) {
+                        System.out.print("Nueva cantidad: ");
+                        stock[idx] = sc.nextInt();
+                        System.out.println(" Actualizado!");
+                    } else System.out.println("❌ Índice inválido");
+                    break;
+                    
+                case 3:
+                    System.out.println("\n--- PRODUCTOS AGOTADOS ---");
+                    boolean hay = false;
+                    for(int i=0; i<nombres.length; i++) 
+                        if(stock[i]==0) { System.out.println(" " + nombres[i]); hay = true; }
+                    if(!hay) System.out.println(" Ningún producto agotado");
+                    break;
+                    
+                case 4:
+                    System.out.println("¡Hasta luego!");
+                    break;
+                    
+
+                default:
+                    System.out.println("Opción inválida");
+            }
+        } while(opcion != 4);
+        sc.close();
+    }
+}

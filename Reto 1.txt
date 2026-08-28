@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class AnalistaTendencias {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] ventas = new int[20];
+        
+        System.out.println("Ingrese 20 IDs de juegos (0 a 20):");
+        for (int i = 0; i < ventas.length; i++) {
+            ventas[i] = sc.nextInt();
+            while (ventas[i] < 0 || ventas[i] > 20) {
+                System.out.print("ID invalido. Ingrese nuevamente: ");
+                ventas[i] = sc.nextInt();
+            }
+        }
+        
+        int[] frecuencia = new int[21];
+        for (int i = 0; i < ventas.length; i++) {
+            frecuencia[ventas[i]]++;
+        }
+        
+        int modaID = 0;
+        int maxVentas = 0;
+        for (int i = 0; i < frecuencia.length; i++) {
+            if (frecuencia[i] > maxVentas) {
+                maxVentas = frecuencia[i];
+                modaID = i;
+            }
+        }
+        
+        System.out.println("\nHistograma de ventas:");
+        for (int i = 0; i < frecuencia.length; i++) {
+            if (frecuencia[i] > 0) {
+                System.out.print("ID " + i + ": ");
+                for (int j = 0; j < frecuencia[i]; j++) {
+                    System.out.print("*");
+                }
+                System.out.println(" (" + frecuencia[i] + ")");
+            }
+        }
+        
+        System.out.println("\nID mas vendido: " + modaID + " (" + maxVentas + " ventas)");
+        sc.close();
+    }
+}

@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Reto2_ReordenamientoMemoria {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // El usuario ingresará 10 números
+        int[] datos = new int[10];
+
+        System.out.println("Ingrese 10 numeros:");
+
+        for (int i = 0; i < 10; i++) {
+            datos[i] = sc.nextInt();
+        }
+
+        // Reorganizar: negativos a la izquierda,
+        // positivos y ceros a la derecha
+        segregarNegativosPositivos(datos);
+
+        imprimirArreglo(datos,
+                "Negativos a la izquierda, positivos y ceros a la derecha:");
+
+        sc.close();
+    }
+
+    public static void segregarNegativosPositivos(int[] arr) {
+
+        int izquierda = 0;
+        int derecha = arr.length - 1;
+
+        while (izquierda < derecha) {
+
+            if (arr[izquierda] < 0) {
+                izquierda++;
+
+            } else if (arr[derecha] >= 0) {
+                derecha--;
+
+            } else {
+
+                int temp = arr[izquierda];
+                arr[izquierda] = arr[derecha];
+                arr[derecha] = temp;
+
+                izquierda++;
+                derecha--;
+            }
+        }
+    }
+
+    private static void imprimirArreglo(int[] arr, String titulo) {
+
+        System.out.println(titulo);
+
+        for (int x : arr) {
+            System.out.print(x + " ");
+        }
+
+        System.out.println();
+    }
+}
