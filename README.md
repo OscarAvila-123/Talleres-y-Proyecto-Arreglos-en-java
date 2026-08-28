@@ -14,9 +14,9 @@ Este repositorio contiene la solución práctica a los retos de programación y 
 * **Ubicación:** Ciudad Bolívar – 2026
 
 ### 👥 Integrantes
-* **Oscar Stiven Avila Nomesque** — ID: 1045928[cite: 1]
-* **David Santiago Borda Jimenez** — ID: 1095539[cite: 1]
-* **Andres Sebastian Reina Yazo** — ID: 1094995[cite: 1]
+* **Oscar Stiven Avila Nomesque** — ID: 1045928
+* **David Santiago Borda Jimenez** — ID: 1095539
+* **Andres Sebastian Reina Yazo** — ID: 1094995
 
 ---
 
